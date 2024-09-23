@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ByteCalculator.css">
+    <title>バイト計算機</title>
+</head>
+<body>
+    <div class="container">
+        <h1>バイト(Byte)計算機</h1>
+        <div class="input-group">
+            <!-- 数字入力 -->
+            <input type="number" id="valueInput" placeholder="数字を入力" />
+
+            <div class="dropdown-group">
+                <!-- 単位選択 -->
+                <select id="unitSelect">
+                    <option value="1">バイト (B)</option>
+                    <option value="1024">キロバイト (KB)</option>
+                    <option value="1048576">メガバイト (MB)</option>
+                    <option value="1073741824">ギガバイト (GB)</option>
+                    <option value="1099511627776">テラバイト (TB)</option>
+                    <option value="1125899906842624">ペタバイト (PB)</option>
+                    <option value="1152921504606846976">エクサバイト (EB)</option>
+                    <option value="1180591620717411303424">ゼタバイト (ZB)</option>
+                    <option value="1208925819614629174706176">ヨタバイト (YB)</option>
+                    <option value="1237989839620901131795900427780">ロナバイト (RB)</option>
+                    <option value="1267650600228229401496703205376">クエタバイト (QB)</option>
+                </select>
+                <!-- 桁数選択 -->
+                <select id="digitSelect">
+                    <option value="6">6桁</option>
+                    <option value="10">10桁</option>
+                    <option value="14">14桁</option>
+                    <option value="18">18桁</option>
+                    <option value="22">22桁</option>
+                    <option value="26">26桁</option>
+                    <option value="30" selected>30桁</option>
+                    <option value="34">34桁</option>
+                    <option value="38">38桁</option>
+                    <option value="42">42桁</option>
+                    <option value="46">46桁</option>
+                    <option value="50">50桁</option>
+                </select>
+            </div>
+
+            <div class="button-group">
+                <!-- 計算ボタン -->
+                <button id="calculateButton">計算</button>
+                <!-- クリアボタン -->
+                <button id="clearButton">クリア</button>
+            </div>
+        </div>
+
+        <!-- 出力エリア -->
+        <div id="output" class="output"></div>
+    </div>
+    <div class="copy-content">
+        <small class="copy">&copy; 2024 H.F</small>
+    </div>
+    <script src="ByteCalculator.js"></script>
+</body>
+</html>

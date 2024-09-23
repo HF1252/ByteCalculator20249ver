@@ -1,0 +1,99 @@
+/* 基本スタイル */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+/* コンテナ */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* タイトル */
+h1 {
+    text-align: center;
+    font-family: serif;
+}
+
+/* 入力グループ */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* プルダウンメニューを横並びにする */
+.dropdown-group {
+    display: flex;
+    justify-content: space-between; /* プルダウンメニューの間にスペースを作る */
+}
+
+/* ボタンエリアをフレックスボックスで横並び */
+.button-group {
+    display: flex;
+    justify-content: center; /* ボタンを中央に配置 */
+    gap: 10px; /* ボタンの間にスペースを作る */
+}
+
+/* 入力、選択、ボタンのスタイル */
+input, select, button {
+    padding: 10px;
+    font-size: 16px;
+    flex: 1; /* 入力フィールドやプルダウンメニューが均等に広がるようにする */
+}
+
+/* ボタンスタイル */
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    width: 80px;
+    height: 45px;
+    font-size: 17px;
+    background-color: aqua;
+    color: black;
+    cursor: pointer;
+    border: none;
+    border-bottom: 7px solid rgb(35, 207, 207);
+    box-shadow: 0px 3px 4px black;
+}
+button:hover {
+    margin: 5px;
+    border-bottom: 1px solid aqua;
+    transition: all 0.2s;
+}
+
+/* 出力エリアのスタイル */
+.output {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.copy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #81e3b9;
+    font-family: serif;
+    margin-top: 1rem;
+}
+
+/* メディアクエリでのモバイル版スタイル */
+@media screen and (max-width: 600px) {
+    .input-group {
+        flex-direction: column;
+        gap: 5px;
+    }
+    input, select, button {
+        font-size: 14px;
+    }
+}

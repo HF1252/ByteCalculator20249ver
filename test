@@ -1,0 +1,32 @@
+@echo off
+setlocal enabledelayedexpansion
+
+:: --- ユーザー入力 ---
+set /p sizeInput="ファイルサイズを入力してください。 (数字のみ)（例：2）: "
+set /p unit="バイトの種類を選択してください。 (項目：B, KB, MB, GB, TB): "
+set /p filename="作成するファイル名を入力してください。(例：Dummy): "
+set /p ext="拡張子を選択してください。 (項目：.txt, .csv, .pdf): "
+set /p outputPath="出力先の絶対パスを入力してください。(例：C:\Users): "
+
+:: --- 単位をバイトに変換 (PowerShellを使用して計算) ---
+set "size=%sizeInput%"
+if /i "%unit%"=="B" set "unit=1"
+if /i "%unit%"=="KB" set "unit=1024"
+if /i "%unit%"=="MB" set "unit=1048576"
+if /i "%unit%"=="GB" set "unit=1073741824"
+if /i "%unit%"=="TB" set "unit=1099511627776"
+
+:: --- ファイルパス設定 ---
+set "filepath=%outputPath%\%filename%%ext%"
+
+:: --- PowerShellでバイトサイズに変換してファイル作成 ---
+powershell -command "fsutil file createnew '%filepath%' ([int64]::Parse('%size%') * [int64]::Parse('%unit%'))"
+if errorlevel 1 (
+   echo エラー: ファイルを作成できませんでした。容量オーバーまたは無効なパスの可能性があります。
+   pause
+   exit /b 1
+)
+
+:: --- 結果出力 ---
+echo %filepath% に空のファイルを作成しました。
+pause
